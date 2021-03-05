@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_05_222410) do
+ActiveRecord::Schema.define(version: 2021_03_05_224538) do
 
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2021_03_05_222410) do
     t.string "last_name"
     t.string "description"
     t.index ["nickname"], name: "index_profiles_on_nickname", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "posts", "profiles"
