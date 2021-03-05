@@ -10,3 +10,11 @@
   <dt>Description</dt>
   <dd><%= @user.description %></dd>
 </dl>
+
+<h2>Posts</h2>
+
+<ul>
+  <% @user.posts.each do |post| %>
+    <li><%= post.text %></li>
+  <% end %>
+</ul>
