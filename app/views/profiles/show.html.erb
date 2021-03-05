@@ -1,0 +1,20 @@
+<h1><%= @profile.nickname %></h1>
+
+<dl>
+  <dt>First name</dt>
+  <dd><%= @profile.first_name %></dd>
+
+  <dt>Last name</dt>
+  <dd><%= @profile.last_name %></dd>
+
+  <dt>Description</dt>
+  <dd><%= @profile.description %></dd>
+</dl>
+
+<h2>Posts</h2>
+
+<ul>
+  <% @profile.posts.each do |post| %>
+    <li><%= post.text %></li>
+  <% end %>
+</ul>
