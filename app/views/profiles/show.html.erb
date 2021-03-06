@@ -16,6 +16,8 @@
 
 <h2>Posts</h2>
 
+<%= link_to 'New post', new_profile_post_path(@profile) %>
+
 <ul>
   <% @profile.posts.each do |post| %>
     <li><%= post.text %></li>
