@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: redirect('/profiles')
+  root to: 'home#show'
 
   devise_for :users
 
