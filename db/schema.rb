@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_03_06_003257) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "value", null: false
+    t.boolean "added_to_wallet", default: false, null: false
     t.index ["value"], name: "index_addresses_on_value", unique: true
   end
 
