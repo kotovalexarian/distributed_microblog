@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  resources :addresses, only: :index
+
   resources :profiles, only: %i[index show] do
     resources :posts, shallow: true, only: %i[new create]
   end
