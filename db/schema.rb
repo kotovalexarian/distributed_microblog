@@ -23,11 +23,13 @@ ActiveRecord::Schema.define(version: 2021_03_05_224538) do
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id", null: false
     t.string "nickname", null: false
     t.string "first_name"
     t.string "last_name"
     t.string "description"
     t.index ["nickname"], name: "index_profiles_on_nickname", unique: true
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,4 +42,5 @@ ActiveRecord::Schema.define(version: 2021_03_05_224538) do
   end
 
   add_foreign_key "posts", "profiles"
+  add_foreign_key "profiles", "users"
 end
