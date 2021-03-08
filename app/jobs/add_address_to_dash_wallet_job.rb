@@ -6,6 +6,8 @@ class AddAddressToDashWalletJob < ApplicationJob
       raise TypeError, "Expected #{Address}, got #{address.class}"
     end
 
+    return if address.added_to_wallet?
+
     raise unless system %Q(dash-cli importaddress "#{address.value}" "" true)
 
     address.update! added_to_wallet: true
