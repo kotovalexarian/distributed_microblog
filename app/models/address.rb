@@ -14,9 +14,11 @@ class Address < ApplicationRecord
   after_create :add_to_wallet
 
   def update_op_return?
-    op_return == nil ||
+    added_to_wallet? && (
+      op_return == nil ||
       op_return_checked_at == nil ||
       op_return_checked_at < 1.hour.ago
+    )
   end
 
   def add_to_wallet
