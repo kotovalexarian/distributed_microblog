@@ -1,4 +1,4 @@
-class AddAddressToDashWalletJob < ApplicationJob
+class AddAddressToWalletJob < ApplicationJob
   queue_as :default
 
   def perform(address)
