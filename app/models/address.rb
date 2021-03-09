@@ -3,8 +3,7 @@ class Address < ApplicationRecord
 
   scope :to_update_op_return, lambda {
     added_to_wallet.where(
-      Address.arel_table[:op_return_value].eq(nil)
-        .or(Address.arel_table[:op_return_checked_at].eq(nil))
+      Address.arel_table[:op_return_checked_at].eq(nil)
         .or(Address.arel_table[:op_return_checked_at].lt(1.hour.ago)),
     )
   }
@@ -15,7 +14,6 @@ class Address < ApplicationRecord
 
   def update_op_return?
     added_to_wallet? && (
-      op_return == nil ||
       op_return_checked_at == nil ||
       op_return_checked_at < 1.hour.ago
     )
